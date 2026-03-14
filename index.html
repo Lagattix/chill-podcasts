@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-width=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <title>Chill Cast - The Chillest Podcast App</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Sidebar -->
+    <aside class="sidebar glass">
+      <div class="logo">
+        <i class="ri-mic-2-fill"></i>
+        <span>ChillCast</span>
+      </div>
+      <ul class="nav-links">
+        <li class="active" id="nav-home">
+          <i class="ri-home-smile-2-line"></i> Home
+        </li>
+        <li id="nav-library" class="hidden">
+          <i class="ri-mv-line"></i> My Podcasts
+        </li>
+        <li id="nav-trending">
+          <i class="ri-fire-line"></i> Trending
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="header">
+        <div class="search-bar">
+          <!-- Search placeholder -->
+        </div>
+        <div class="user-info" id="user-controls">
+          <!-- Dynamic User Controls -->
+        </div>
+      </header>
+
+      <section class="section" id="view-home">
+        <h2 class="section-title">Chill Vibes Only 🔥</h2>
+        <div class="podcast-grid" id="home-grid">
+          <!-- Dynamic Podcasts -->
+        </div>
+      </section>
+
+      <section class="section hidden" id="view-library">
+        <h2 class="section-title">My Chill Collection</h2>
+        <div class="podcast-grid" id="library-grid">
+          <!-- User specific podcasts -->
+        </div>
+      </section>
+    </main>
+
+    <!-- Bottom Player -->
+    <div class="player-bar" id="player-bar">
+      <div class="player-left">
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=150&h=150&fit=crop" alt=""
+          class="player-cover" id="player-cover">
+        <div class="player-info">
+          <span class="player-title" id="player-title">Nothing playing</span>
+          <span class="player-author" id="player-author">-</span>
+        </div>
+      </div>
+
+      <div class="player-center">
+        <div class="player-controls">
+          <button class="control-btn" id="btn-prev"><i class="ri-skip-back-fill"></i></button>
+          <button class="control-btn play-btn" id="btn-play-pause"><i class="ri-play-fill"
+              id="play-pause-icon"></i></button>
+          <button class="control-btn" id="btn-next"><i class="ri-skip-forward-fill"></i></button>
+        </div>
+        <div class="progress-container">
+          <span id="time-current">0:00</span>
+          <div class="progress-bar" id="progress-bar-container">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <span id="time-total">0:00</span>
+        </div>
+      </div>
+
+      <div class="player-right">
+        <button class="save-btn" id="btn-save-playing"><i class="ri-heart-line"></i></button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Auth Modal -->
+  <div class="modal-overlay" id="auth-modal-overlay">
+    <div class="auth-modal glass">
+      <h2 id="auth-title">Log In</h2>
+      <form id="auth-form">
+        <div class="input-group">
+          <input type="email" id="auth-email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <input type="password" id="auth-password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary" id="auth-submit-btn">Login</button>
+      </form>
+      <p class="auth-toggle">Don't have an account? <span id="toggle-auth-mode">Sign Up</span></p>
+      <button class="btn" id="auth-close-btn"
+        style="background: transparent; color: var(--text-secondary); margin-top: -10px;">Close (Continue as
+        Guest)</button>
+    </div>
+  </div>
+
+  <!-- Add Podcast Modal -->
+  <div class="modal-overlay" id="add-modal-overlay">
+    <div class="auth-modal glass">
+      <h2>Add Your Podcast</h2>
+      <form id="add-podcast-form" class="form-add-podcast">
+        <div class="input-group">
+          <input type="text" id="add-title" placeholder="Podcast Title" required>
+        </div>
+        <div class="input-group">
+          <input type="text" id="add-author" placeholder="Author Name" required>
+        </div>
+        <div class="input-group">
+          <input type="url" id="add-cover" placeholder="Cover Image URL (unsplash etc)" required>
+        </div>
+        <div class="input-group">
+          <input type="url" id="add-audio" placeholder="Audio File URL (.mp3)" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add to Library</button>
+      </form>
+      <button class="btn" id="add-close-btn"
+        style="background: transparent; color: var(--text-secondary); margin-top: 10px;">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Audio Element (hidden) -->
+  <audio id="audio-player"></audio>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
